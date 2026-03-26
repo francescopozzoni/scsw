@@ -1,7 +1,7 @@
 #!/bin/bash
 # Usage: ./scsw_compare.sh [folder] [rows] [ext1] [ext2]
 # Finds paired files with configurable extensions sharing the same base name, transforms each
-# with srt_to_oneline.sh / sub_to_oneline.sh, and produces a stacked
+# with srt_to_oneline.sh / ass_to_oneline.sh, and produces a stacked
 # comparison of the first N rows (default: 30).
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
@@ -15,9 +15,9 @@ EXT1="${EXT1#.}"
 EXT2="${EXT2#.}"
 
 SRT_SCRIPT="$SCRIPT_DIR/lib/srt_to_oneline.sh"
-SUB_SCRIPT="$SCRIPT_DIR/lib/sub_to_oneline.sh"
+SUB_SCRIPT="$SCRIPT_DIR/lib/ass_to_oneline.sh"
 
-for s in "$SCRIPT_DIR/lib/srt_to_oneline.sh" "$SCRIPT_DIR/lib/sub_to_oneline.sh"; do
+for s in "$SCRIPT_DIR/lib/srt_to_oneline.sh" "$SCRIPT_DIR/lib/ass_to_oneline.sh"; do
     if [[ ! -x "$s" ]]; then
         echo "Error: $s not found or not executable." >&2
         exit 1

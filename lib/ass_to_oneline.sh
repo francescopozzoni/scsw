@@ -1,5 +1,5 @@
 #!/bin/bash
-# Usage: ./sub_to_oneline.sh input.ass [output.txt]
+# Usage: ./ass_to_oneline.sh input.ass [output.txt]
 # Extracts Dialogue lines from ASS/SSA .ass files and outputs:
 #   HH:MM:SS,mmm --> HH:MM:SS,mmm text
 
