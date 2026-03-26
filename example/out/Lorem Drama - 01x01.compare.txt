@@ -1,8 +1,8 @@
-[it.srt]
+[track2.eng.sub]
 ---------------------------------------------------------------
-00:00:05,000 --> 00:00:07,000 Lorem ipsum dolor sit amet.
-00:00:10,000 --> 00:00:12,000 Consectetur adipiscing elit.
-00:00:15,000 --> 00:00:17,000 Sed do eiusmod tempor incididunt.
+00:00:04,500 --> 00:00:06,500 Lorem ipsum dolor sit amet.
+00:00:09,400 --> 00:00:11,400 Consectetur adipiscing elit.
+00:00:14,600 --> 00:00:16,600 Sed do eiusmod tempor incididunt.
 
 [track2.eng.sub]
 ---------------------------------------------------------------

@@ -37,6 +37,11 @@ Custom extensions:
 ../scsw_compare.sh . 30 it.srt track2.eng.sub
 ```
 
+Supported combinations include:
+- sub -> sub
+- srt -> srt
+- srt -> sub
+
 What this does:
 - Creates an `out/` folder inside your current folder.
 - Writes one `*.compare.txt` file for each matched pair.
@@ -59,11 +64,22 @@ Run shift on the edited compare files:
 ../scsw_shift.sh out/*.compare.txt
 ```
 
-If your source subtitle extension is custom, pass it with `-e`:
+If your source subtitle extension is custom, pass it with `-f`:
 
 ```bash
-../scsw_shift.sh -e it.srt out/*.compare.txt
+../scsw_shift.sh -f it.srt out/*.compare.txt
 ```
+
+You can choose both source and reference section extensions:
+
+```bash
+../scsw_shift.sh -f it.srt -t track2.eng.sub out/*.compare.txt
+```
+
+Supported combinations include:
+- sub -> sub
+- srt -> srt
+- srt -> sub
 
 What this does:
 - Searches source subtitle files in your current folder.
@@ -72,4 +88,4 @@ What this does:
 
 ## Requirements
 
-- `ffmpeg` must be installed and available in `PATH`.
+- Bash shell (Linux/macOS/WSL).
