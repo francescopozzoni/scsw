@@ -1,10 +1,10 @@
 #!/bin/bash
-# Usage: ./sub_to_oneline.sh input.sub [output.txt]
-# Extracts Dialogue lines from ASS/SSA .sub files and outputs:
+# Usage: ./sub_to_oneline.sh input.ass [output.txt]
+# Extracts Dialogue lines from ASS/SSA .ass files and outputs:
 #   HH:MM:SS,mmm --> HH:MM:SS,mmm text
 
 if [[ $# -lt 1 ]]; then
-    echo "Usage: $0 input.sub [output.txt]" >&2
+    echo "Usage: $0 input.ass [output.txt]" >&2
     exit 1
 fi
 

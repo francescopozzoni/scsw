@@ -8,7 +8,7 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 FOLDER="${1:-.}"
 ROWS="${2:-30}"
 EXT1="${3:-srt}"
-EXT2="${4:-sub}"
+EXT2="${4:-ass}"
 OUT_DIR="$PWD/out"
 
 EXT1="${EXT1#.}"
@@ -28,9 +28,9 @@ pick_converter() {
     local ext="$1"
     case "$ext" in
         *srt) echo "$SRT_SCRIPT" ;;
-        *sub) echo "$SUB_SCRIPT" ;;
+        *ass) echo "$SUB_SCRIPT" ;;
         *)
-            echo "Error: unsupported extension '.${ext}'. Use an srt- or sub-based extension." >&2
+            echo "Error: unsupported extension '.${ext}'. Use an srt- or ass-based extension." >&2
             return 1
             ;;
     esac
@@ -67,7 +67,7 @@ for base in "${!srt_map[@]}"; do
         ext1_name="$(basename "$file1")"
         ext1_name="${ext1_name#*.}"          # e.g. it.srt
         ext2_name="$(basename "$file2")"
-        ext2_name="${ext2_name#*.}"          # e.g. track2.eng.sub
+        ext2_name="${ext2_name#*.}"          # e.g. track2.eng.ass
 
         outfile="$OUT_DIR/${base}.compare.txt"
 

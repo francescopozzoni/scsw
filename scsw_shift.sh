@@ -1,12 +1,12 @@
 #!/bin/bash
 # Usage: ./scsw_shift.sh [-f from_ext] [-t to_ext] compare1.compare.txt [compare2.compare.txt ...]
 # Computes an offset from compare file sections and applies it to source subtitle files.
-# Supported source formats: SRT and ASS/SSA-style SUB (Dialogue lines).
+# Supported source formats: SRT and ASS/SSA-style subtitles (Dialogue lines).
 
 set -euo pipefail
 
 FROM_EXT="srt"
-TO_EXT="sub"
+TO_EXT="ass"
 
 while [[ $# -gt 0 ]]; do
     case "$1" in
@@ -41,8 +41,8 @@ while [[ $# -gt 0 ]]; do
         -h|--help)
             echo "Usage: $0 [-f from_ext] [-t to_ext] compare1.compare.txt [compare2.compare.txt ...]"
             echo "Examples:"
-            echo "  $0 -f it.srt -t track2.eng.sub out/*.compare.txt"
-            echo "  $0 -f track2.eng.sub -t track2.eng.sub out/*.compare.txt"
+            echo "  $0 -f it.srt -t track2.eng.ass out/*.compare.txt"
+            echo "  $0 -f track2.eng.ass -t track2.eng.ass out/*.compare.txt"
             echo "  $0 -f it.srt -t it.srt out/*.compare.txt"
             exit 0
             ;;
@@ -214,11 +214,11 @@ for COMPARE in "$@"; do
         *srt)
             shift_srt_file "$SOURCE_FILE" "$OUTPUT" "$offset"
             ;;
-        *sub)
+        *ass)
             shift_sub_file "$SOURCE_FILE" "$OUTPUT" "$offset"
             ;;
         *)
-            echo "Error: unsupported source extension '.${FROM_EXT}'. Use an srt or sub-based extension." >&2
+            echo "Error: unsupported source extension '.${FROM_EXT}'. Use an srt or ass-based extension." >&2
             continue
             ;;
     esac
