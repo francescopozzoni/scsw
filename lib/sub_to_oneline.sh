@@ -26,7 +26,7 @@ fmt_ts() {
 }
 
 run() {
-    grep -E '^Dialogue:' "$INPUT" | awk -F',' '
+    awk -F',' '
     function fmt(ts,    a, n, h, m, s, cs, ms) {
         n  = split(ts, a, /[.:]/)
         h  = a[1] + 0
@@ -36,7 +36,7 @@ run() {
         ms = cs * 10
         return sprintf("%02d:%02d:%02d,%03d", h, m, s, ms)
     }
-    {
+    /^[[:space:]]*[Dd]ialogue:/ {
         start = fmt($2)
         end   = fmt($3)
         # Text is everything after the 9th comma
@@ -53,7 +53,7 @@ run() {
         # Trim leading/trailing spaces
         gsub(/^ +| +$/, "", text)
         print start " --> " end " " text
-    }'
+    }' "$INPUT"
 }
 
 if [[ -n "$OUTPUT" ]]; then

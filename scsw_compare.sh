@@ -85,10 +85,18 @@ for base in "${!srt_map[@]}"; do
         {
             printf '[%s]\n' "$ext1_name"
             printf '%s\n' "$separator"
-            cat "$tmp_1"
+            if [[ -s "$tmp_1" ]]; then
+                cat "$tmp_1"
+            else
+                printf '[No lines parsed]\n'
+            fi
             printf '\n[%s]\n' "$ext2_name"
             printf '%s\n' "$separator"
-            cat "$tmp_2"
+            if [[ -s "$tmp_2" ]]; then
+                cat "$tmp_2"
+            else
+                printf '[No lines parsed]\n'
+            fi
         } > "$outfile"
 
         rm -f "$tmp_1" "$tmp_2"
